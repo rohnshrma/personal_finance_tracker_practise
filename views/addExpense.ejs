@@ -1,0 +1,30 @@
+<%-include('Header.ejs')-%>
+    <div>
+        <div class="cont">
+            <h2 class="mb-3">AddExpense</h2>
+
+            <form action="/addExpense" method="post" class="mb-2">
+                <div class="form-group">
+                    <input type="text" name="name" class="form-control" placeholder="Enter your expense name">
+                </div>
+                <div class="form-group">
+                    <input type="number" name="amount" class="form-control" placeholder="Enter your amount">
+                </div>
+                <div class="form-group">
+                    <select name="category" class="form-control">
+                        <option>Category</option>
+                        <option value="food">Food</option>
+                        <option value="living">Living</option>
+                        <option value="utilities">Utilities</option>
+                        <option value="transport">Transport</option>
+                        <option value="shopping">Shopping</option>
+                        <option value="entertainment">Entertainment</option>
+                        <option value="others">Others</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-lg btn-block btn-primary">Add</button>
+
+            </form>
+        </div>
+    </div>
+    <%-include('Footer.ejs')-%>

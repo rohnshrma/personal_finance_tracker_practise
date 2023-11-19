@@ -1,0 +1,67 @@
+body {
+    background: linear-gradient(45deg, teal, dodgerblue);
+    color: #fff;
+    min-height: 100vh;
+
+}
+
+p {
+    margin: 0;
+}
+
+h2 {
+    margin-bottom: 0;
+}
+
+.cont {
+    border-radius: 4px;
+    /* background-color: #fff;
+    box-shadow: 0 0 4px 0 #000; */
+
+    background: rgba(255, 255, 255, 0.30);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 2rem 4rem;
+    width: 70%;
+    margin: 2rem auto 0;
+}
+
+
+
+
+.expense {
+    padding: 2rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgb(255, 255, 255);
+}
+
+.expense_name {
+    width: 60%;
+}
+
+.expense_name h2 {
+    font-size: 2rem;
+
+}
+
+.expense_amount {
+    width: 20%;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.expense a {
+
+    border: none;
+    color: #fff;
+    background-color: transparent;
+}
+
+.expense:last-child {
+    border-bottom: none;
+}

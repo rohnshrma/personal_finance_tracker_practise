@@ -1,0 +1,42 @@
+<%-include("Header.ejs")-%>
+    <div class="cont text-center">
+        <!-- <h1 classs="my-4">Expense Tracker</h1> -->
+        <div class="btn-group" role="group" aria-label="Filter Expense">
+            <a href="/category/" class="btn btn-secondary">All Expenses</a>
+            <a href="/category/food" class="btn btn-secondary">Food</a>
+            <a href="/category/utilities" class="btn btn-secondary">Utilities</a>
+            <a href="/category/living" class="btn btn-secondary">Living</a>
+            <a href="/category/shopping" class="btn btn-secondary">Shopping</a>
+            <a href="/category/transport" class="btn btn-secondary">Transport</a>
+            <a href="/category/entertainment" class="btn btn-secondary">Entertainment</a>
+            <a href="/category/others" class="btn btn-secondary">Others</a>
+
+
+        </div>
+        <!-- < href="/addExpense" class="btn btn-block btn-light">Add Expense</> -->
+    </div>
+
+    <div class="expenses">
+        <div class="cont">
+
+            <% expense_array.forEach((expense_object)=>{ %>
+                <div class="expense">
+                    <div class="expense_name">
+                        <h2>
+                            <%= expense_object.name %>
+                        </h2>
+                    </div>
+                    <div class="expense_amount">
+                        <p>
+                            $ <%= expense_object.amount %>
+                        </p>
+                    </div>
+                    <form>
+                        <a href="/delete/<%= expense_object._id %>"><i class="fa-solid fa-trash"></i></a>
+                    </form>
+                </div>
+                <% }) %>
+        </div>
+    </div>
+
+    <%-include("Footer.ejs")-%>
