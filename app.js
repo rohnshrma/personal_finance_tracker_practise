@@ -13,7 +13,7 @@ const { name } = require("ejs")
 
 
 
-const PORT = 3000
+const PORT = process.env.PORT || 3000
 //mongoose and app server setup//
 const mongo_url = "mongodb+srv://tannushree:admin_tannushree@cluster0.tq26bem.mongodb.net/financeTrackerDB"
 mongoose.connect(mongo_url)
