@@ -82,8 +82,8 @@ const expenseSchema = new mongoose.Schema({
 })
 
 //model
-const User = mongoose.model("user", userSchema)
-const Expense = mongoose.model("expense", expenseSchema)
+const User = new mongoose.model("user", userSchema)
+const Expense = new mongoose.model("expense", expenseSchema)
 //==
 
 
@@ -105,10 +105,17 @@ const isLoggedIn = (req, res, next) => {
 //===rotues
 app.get("/", (req, res) => {
     Expense.find({})
-        .then((foundExpense) => {
-            res.render("dashboard.ejs", {
-                expense_array: foundExpense.reverse()
-            })
+        .then((foundExpenses) => {
+            console.log(foundExpenses);
+            if (foundExpenses.length > 0) {
+                res.render("dashboard", {
+                    data: foundExpenses.reverse()
+                })
+            } else {
+                res.render("dashboard", {
+                    data: "No Expenses Found"
+                })
+            }
 
         })
 
@@ -244,18 +251,23 @@ app.get("/category/:category?", (req, res) => {
     const selected_category = req.params.category
     // if the user enters a category then filter will be an object {category : selected_category}, if he doesn't it will be 
     // an empty object {}
+
+    console.log("category => ", selected_category);
+
     const filter = selected_category ? { category: selected_category } : {}
-    console.log(filter);
+    console.log("filter =>", filter);
 
     Expense.find(filter)
         .then((foundExpenses) => {
+            console.log(foundExpenses);
             if (foundExpenses.length > 0) {
-                res.render("dashboard.ejs", {
-                    expense_array: foundExpenses
+                res.render("dashboard", {
+                    data: foundExpenses.reverse()
                 })
             } else {
-                console.log("No Items found", foundExpenses);
-
+                res.render("dashboard", {
+                    data: "No Expenses Found"
+                })
             }
         })
         .catch((err) => {

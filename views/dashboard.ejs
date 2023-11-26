@@ -15,27 +15,34 @@
         </div>
         <!-- < href="/addExpense" class="btn btn-block btn-light">Add Expense</> -->
     </div>
+    <!-- if data is an array -->
 
     <div class="expenses">
         <div class="cont">
 
-            <% expense_array.forEach((expense_object)=>{ %>
-                <div class="expense">
-                    <div class="expense_name">
-                        <h2>
-                            <%= expense_object.name %>
-                        </h2>
-                    </div>
-                    <div class="expense_amount">
-                        <p>
-                            $ <%= expense_object.amount %>
-                        </p>
-                    </div>
-                    <form>
+            <% if(typeof data==typeof []){%>
+
+                <% data.forEach((expense_object)=>{ %>
+                    <div class="expense">
+                        <div class="expense_name">
+                            <h2>
+                                <%= expense_object.name %>
+                            </h2>
+                        </div>
+                        <div class="expense_amount">
+                            <p>
+                                $ <%= expense_object.amount %>
+                            </p>
+                        </div>
+
                         <a href="/delete/<%= expense_object._id %>"><i class="fa-solid fa-trash"></i></a>
-                    </form>
-                </div>
-                <% }) %>
+
+                    </div>
+                    <% }) %>
+                        <% } else{ %>
+                            <h2>No Expenses Found</h2>
+                            <% } %>
+
         </div>
     </div>
 
